@@ -34,8 +34,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
-
-
 class WorkerPool<T, U>(
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default
 ) {
@@ -66,4 +64,4 @@ class WorkerPool<T, U>(
     }
 }
 
-private data class Worker<T>(val id: Int, val value: T)
+data class Worker<T>(val id: Int, val value: T)
