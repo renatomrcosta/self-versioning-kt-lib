@@ -17,3 +17,5 @@ Then the actions: The two workflows create are independent of one another:
 1. The `semantic_release.yml` workflow triggers whenever main is pushed to. It will run tests and then run the semantic release plugin. The plugin is solely responsible for generating a new git tag and github release in case the version should be bumped.
 
 2. The `publish.yml` workflow triggers whenever a release is created (so it can also react to manual releases). It will take the latest git HEAD, stripe away the characters we don't want in the version number (namely, `/refs/HEAD/v.1.2.30` becomes `1.2.30` for example), and call the gradle publish task passing this version as a parameter. This works because we can specify a substitution to the `version` key in the gradle.properties file via the cmd line.
+
+A sample of usage of this lib can be seen at [this commit](https://github.com/renatomrcosta/boot3-playground/commit/6569be221b157bd4256a82eb97414f59eec7e5cd)
