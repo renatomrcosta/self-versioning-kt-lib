@@ -1,0 +1,2 @@
+# Self Versioning Kotlin Lib
+
