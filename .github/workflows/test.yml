@@ -1,0 +1,15 @@
+name: Build and run tests on library
+
+# Trigger on the pushed branches on pull requests
+on:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Build and test
+        run: make test
