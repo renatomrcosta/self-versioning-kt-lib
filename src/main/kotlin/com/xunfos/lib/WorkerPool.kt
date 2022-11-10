@@ -36,7 +36,7 @@ import kotlinx.coroutines.launch
 
 
 
-private class WorkerPool<T, U>(
+class WorkerPool<T, U>(
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default
 ) {
     private val inputChannel: Channel<T> = Channel()
