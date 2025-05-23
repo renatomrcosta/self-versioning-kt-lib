@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.21"
+    kotlin("jvm") version "1.9.21"
     `java-library`
     `maven-publish`
 }
@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     testImplementation(kotlin("test"))
 }
 
@@ -22,10 +22,16 @@ tasks.test {
     useJUnitPlatform()
 }
 
+// Set Java compatibility
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 tasks.withType<KotlinCompile> {
     with(kotlinOptions) {
-        jvmTarget = "17"
-        languageVersion = "1.7"
+        jvmTarget = "11"
+        languageVersion = "1.9"
     }
 }
 
